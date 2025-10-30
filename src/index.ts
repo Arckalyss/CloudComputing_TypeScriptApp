@@ -28,7 +28,9 @@ app.get("/api/v1/sysinfo", async (_req, res) => {
 
 app.use((_req, res) => res.status(404).json({ error: "Not Found" }));
 
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+// ✅ Ne lance le serveur que si le fichier est exécuté directement
+if (require.main === module) {
+  app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+}
 
-export { getSystemInformation };
-
+export { app, getSystemInformation };
