@@ -32,9 +32,10 @@ jobs:
       - name: Push to Docker Hub
         run: |
           docker push arckalyss/sysinfo-api:latest
-
+          
       - name: Push to GitHub Container Registry
         run: |
-          docker tag arckalyss/sysinfo-api:latest ghcr.io/${{ github.repository_owner }}/sysinfo-api:latest
-          docker push ghcr.io/${{ github.repository_owner }}/sysinfo-api:latest
+          docker tag arckalyss/sysinfo-api:latest ghcr.io/arckalyss/sysinfo-api:latest
+          docker push ghcr.io/arckalyss/sysinfo-api:latest
+
 
