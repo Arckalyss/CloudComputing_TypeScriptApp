@@ -1,0 +1,33 @@
+name: CI - Build and Test
+
+# Déclencheur : à chaque push sur la branche main
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1 : Récupérer le code du dépôt
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      # Étape 2 : Installer Node.js (même version que ton projet)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # 💡 adapte cette version à celle que tu utilises localement
+
+      # Étape 3 : Installer les dépendances
+      - name: Install dependencies
+        run: npm ci
+
+      # Étape 4 : Compiler le code TypeScript
+      - name: Build application
+        run: npm run build
+
+      # Étape 5 : Exécuter les tests unitaires
+      - name: Run tests
+        run: npm test
