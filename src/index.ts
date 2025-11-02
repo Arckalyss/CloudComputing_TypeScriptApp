@@ -14,7 +14,7 @@ async function getSystemInformation() {
     processes: await si.processes(),
     diskLayout: await si.diskLayout(),
     networkInterfaces: await si.networkInterfaces(),
-    testCI: "Ceci est un test CI/CD" // <-- ajout temporaire pour test
+    testCI: "Ceci est un test CI/CD2" // <-- ajout temporaire pour test
   };
 }
 
